@@ -782,8 +782,76 @@
       font-size: 2rem;
       line-height: 1;
       flex-shrink: 0;
+      width: 2.5rem;
+      text-align: center;
     }
     .ach-text-wrap {}
+    .cert-block { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--card-border); }
+    .ebooks-block { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--card-border); scroll-margin-top: 80px; }
+    .app-card { display: flex; gap: 1.5rem; align-items: flex-start; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem; margin-bottom: 2.5rem; transition: border-color 0.3s; }
+    .app-card:hover { border-color: rgba(116,198,157,0.4); }
+    .app-icon { width: 88px; height: 88px; border-radius: 20px; flex-shrink: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+    .app-name { font-weight: 700; font-size: 1.3rem; margin: 0.2rem 0 0.5rem; }
+    .app-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .app-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .app-visit { display: inline-flex; }
+    .app-note { font-size: 0.72rem; color: var(--muted2); margin-left: 0.75rem; }
+    .ebooks-subtitle { font-weight: 700; font-size: 1rem; margin-bottom: 0.75rem; }
+    @media (max-width: 640px) {
+      .app-card { flex-direction: column; }
+      .app-icon { width: 64px; height: 64px; border-radius: 16px; }
+      .app-note { display: block; margin: 0.5rem 0 0; }
+    }
+    .ebooks-intro { font-size: 0.88rem; color: var(--muted); margin: 0 0 1.5rem; }
+    .ebook-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .ebook-card { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; align-items: stretch; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+    .ebook-card:hover, .ebook-card:focus-visible { transform: translateY(-4px); border-color: rgba(251,191,36,0.35); }
+    .ebook-card:focus-visible { outline: 2px solid #FFB3BE; outline-offset: 3px; }
+    .ebook-cover { position: relative; width: 42%; flex-shrink: 0; aspect-ratio: 3/4; overflow: hidden; background: #0b1533; }
+    .ebook-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .ebook-card:hover .ebook-cover img { transform: scale(1.04); }
+    .ebook-open { position: absolute; left: 50%; bottom: 0.9rem; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.95rem; border-radius: 999px; background: rgba(0,2,73,0.82); color: #fff; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+    .ebook-open svg { width: 15px; height: 15px; }
+    .ebook-info { padding: 1.25rem 1.25rem 1.3rem; display: flex; flex-direction: column; justify-content: center; }
+    .ebook-unit { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FFB3BE; }
+    .ebook-title { font-weight: 700; font-size: 1.1rem; margin: 0.25rem 0 0.4rem; }
+    .ebook-topics { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .ebook-pages { font-size: 0.72rem; color: var(--muted2); margin-top: 0.6rem; }
+    .tl-link { color: #FFB3BE; text-decoration: none; white-space: nowrap; }
+    .tl-link:hover { text-decoration: underline; }
+    #ebook-viewer { display: none; position: fixed; inset: 0; z-index: 10000; background: #05091f; flex-direction: column; }
+    #ebook-viewer.open { display: flex; }
+    .ebook-viewer-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; color: #fff; background: #000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .ebook-viewer-title { flex: 1; font-weight: 600; font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ebook-viewer-btn { color: #fff; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 0.35rem 0.75rem; font-size: 0.8rem; text-decoration: none; cursor: pointer; font-family: inherit; }
+    .ebook-viewer-btn:hover { background: rgba(255,255,255,0.2); }
+    .ebook-viewer-close { font-size: 1.3rem; line-height: 1; padding: 0.2rem 0.7rem; }
+    #ebook-viewer-frame { flex: 1; width: 100%; border: 0; background: #fff; }
+    @media (max-width: 640px) {
+      .ebook-grid { grid-template-columns: 1fr; }
+      .ebook-card { flex-direction: column; }
+      .ebook-cover { width: 100%; }
+      #ebook-viewer-newtab { display: none; }
+    }
+    .ach-sub { font-size: 0.75rem; color: var(--muted2); margin-top: 0.3rem; }
+    .pub-venue { font-weight: 400; font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
+    .cert-item { align-items: center; }
+    .cert-thumb { width: 96px; flex-shrink: 0; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; cursor: zoom-in; border: 1px solid var(--card-border); }
+    .cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cert-verify { display: inline-block; margin-top: 0.4rem; font-size: 0.75rem; color: #FFB3BE; text-decoration: none; }
+    .cert-verify:hover { text-decoration: underline; }
+    .hl-gallery { margin-top: 3rem; }
+    .hl-group { margin-top: 1.75rem; }
+    .hl-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem; margin-bottom: 0.75rem; }
+    .hl-group-title { font-weight: 600; font-size: 0.9rem; }
+    .hl-group-date { font-size: 0.75rem; color: var(--muted2); }
+    .hl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.85rem; }
+    .hl-item { aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border); background: rgba(255,255,255,0.03); cursor: zoom-in; transition: transform 0.3s, border-color 0.3s; }
+    .hl-item:hover { transform: translateY(-3px); border-color: rgba(251,191,36,0.3); }
+    .hl-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .hl-item.doc img { object-fit: contain; object-position: center; padding: 6px; }
+    .hl-item.wide { grid-column: span 2; aspect-ratio: 3/2; }
+    .hl-item.wide img { object-position: center; }
     .ach-text {
       font-size: 0.875rem;
       font-weight: 500;
@@ -1373,7 +1441,7 @@
       </div>
       <h1 class="hero-name"><span>Muhammad Ali Malik</span></h1>
       <p class="hero-bio">
-        An accomplished academician and media professional. A gold medalist, topped both his bachelor's and master's programs in Media Studies. He has served as a permanent faculty member at Riphah International University and Foundation University Islamabad, and as a visiting lecturer at TMUC Pakistan. His creative work in media has been recognized with two National Awards for musical films in 2021. He is currently pursuing a Ph.D. in Creative Multimedia at Multimedia University, Malaysia, on scholarship with a Graduate Research Assistant position.
+        An accomplished academician and media professional. A gold medalist, topped both his bachelor's and master's programs in Media Studies. He has served as a permanent faculty member at Riphah International University and Foundation University Islamabad, and as a visiting lecturer at TMUC Pakistan. His creative work in media has been recognized with two National Awards for musical films in 2021. He is currently pursuing a Ph.D. in Creative Multimedia at Multimedia University, Malaysia, on scholarship with a Graduate Research Assistant position. Most recently, he worked as an AI Developer &amp; Producer, building an AI-powered mathematics learning app and curriculum e-books for Malaysian schools.
       </p>
       <div class="hero-actions">
         <a href="#publications" class="btn-primary">
@@ -1397,7 +1465,7 @@
           <div class="hcs-lbl">Years Teaching</div>
         </div>
         <div class="hcs">
-          <div class="hcs-num">6</div>
+          <div class="hcs-num">8</div>
           <div class="hcs-lbl">Publications</div>
         </div>
         <div class="hcs">
@@ -1453,11 +1521,42 @@
               <span class="tl-pill">Ph.D. Researcher</span>
               <span class="tl-pill">FRGS Grant</span>
               <span class="tl-pill">DIFCON'25</span>
+              <span class="tl-pill">DIFCON'26</span>
             </div>
             <ul class="tl-bullets">
               <li>Enrolled in Ph.D. Creative Multimedia at MMU Cyberjaya on full scholarship</li>
               <li>Delivered lectures to Malaysian undergraduate students in Online Interactive Learning Modules</li>
               <li>Organized DIFCON'25 research conference and presented two research papers</li>
+              <li>Co-authored a paper at ICCM2026 / DIFCON'26 and served on the conference committee as volunteer and helper</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal reveal-delay-1">
+        <div class="tl-date">
+          <div class="tl-date-range"><span class="tl-date-start">Apr 2026</span><span class="tl-date-sep"></span><span class="tl-date-end">Sep 2026</span></div>
+        </div>
+        <div class="tl-line">
+          <div class="tl-dot-outer"></div>
+          <div class="tl-connector"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-card">
+            <div class="tl-org-row">
+              <div class="tl-org">Mindware Services</div>
+            </div>
+            <div class="tl-role">AI Developer &amp; Producer — Educational Technology</div>
+            <div class="tl-pills">
+              <span class="tl-pill">CK AI Tutor 2.0</span>
+              <span class="tl-pill">AI EdTech</span>
+              <span class="tl-pill">Mathematics</span>
+              <span class="tl-pill">E-books</span>
+            </div>
+            <ul class="tl-bullets">
+              <li>Developed and produced <a class="tl-link" href="https://ckaitutor2.web.app/" target="_blank" rel="noopener">CK AI Tutor 2.0 ↗</a>, an AI-powered Year 5 Mathematics teaching platform for Malaysian schools, built to support teachers in the classroom</li>
+              <li>Trained and refined the app continuously based on teachers' feedback, shipping updates to match their requirements</li>
+              <li>Created chapter-based, visual e-books aligned with the school curriculum — <a class="tl-link" href="#ebooks">view the flipbooks ↓</a></li>
             </ul>
           </div>
         </div>
@@ -1556,6 +1655,57 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- E-BOOKS (Mindware Services) -->
+    <div class="ebooks-block" id="ebooks">
+      <div class="conf-gallery-title">Projects · Mindware Services</div>
+
+      <div class="app-card reveal">
+        <img class="app-icon" src="2026/ckai-tutor-icon.png" alt="CK AI Tutor 2.0 logo" />
+        <div class="app-body">
+          <div class="ebook-unit">AI Teaching Platform · Year 5 Mathematics</div>
+          <div class="app-name">CK AI Tutor 2.0</div>
+          <p class="app-desc">An AI-powered teaching platform built for Malaysian classrooms and aligned with DSKP KSSR. Developed, produced and continuously refined based on teachers' feedback.</p>
+          <div class="app-features">
+            <span class="skill-chip">📊 Dashboard &amp; Analytics</span>
+            <span class="skill-chip">🧠 AI Worksheet, Outline &amp; Paper Generator</span>
+            <span class="skill-chip">🎯 Activities, Marking &amp; Games</span>
+            <span class="skill-chip">🗓️ Attendance &amp; Reports</span>
+          </div>
+          <a class="btn-ghost app-visit" href="https://ckaitutor2.web.app/" target="_blank" rel="noopener">Visit the app ↗</a>
+          <span class="app-note">Teacher login required</span>
+        </div>
+      </div>
+
+      <div class="ebooks-subtitle">📚 Curriculum E-books</div>
+      <p class="ebooks-intro">Chapter-based, illustrated storybooks for Malaysian Year 5 Mathematics. Click a book to read it as a flipbook.</p>
+      <div class="ebook-grid">
+        <button type="button" class="ebook-card reveal" data-book="2026/ebooks/ch5-measurement.html" data-title="Measurement">
+          <div class="ebook-cover">
+            <img src="2026/ebooks/ch5-cover.jpg" alt="Measurement e-book cover" loading="lazy" />
+            <div class="ebook-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h7a3 3 0 013 3v13a2 2 0 00-2-2H2zM22 4h-7a3 3 0 00-3 3v13a2 2 0 012-2h8z"/></svg>Open flipbook</div>
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-unit">Year 5 Mathematics · Chapter 5</div>
+            <div class="ebook-title">Measurement</div>
+            <div class="ebook-topics">Length · Mass · Volume of Liquid. A storybook set in Sarawak with Aina, Danish &amp; their robot friend Milli.</div>
+            <div class="ebook-pages">14 pages · Interactive flipbook</div>
+          </div>
+        </button>
+        <button type="button" class="ebook-card reveal reveal-delay-1" data-book="2026/ebooks/ch6-space.html" data-title="Space">
+          <div class="ebook-cover">
+            <img src="2026/ebooks/ch6-cover.jpg" alt="Space e-book cover" loading="lazy" />
+            <div class="ebook-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h7a3 3 0 013 3v13a2 2 0 00-2-2H2zM22 4h-7a3 3 0 00-3 3v13a2 2 0 012-2h8z"/></svg>Open flipbook</div>
+          </div>
+          <div class="ebook-info">
+            <div class="ebook-unit">Year 5 Mathematics · Chapter 6</div>
+            <div class="ebook-title">Space</div>
+            <div class="ebook-topics">Polygons · Composite Shapes · Problem Solving. The Angkasa Squad builds Stesen Hornbill, Malaysia&#39;s first space station.</div>
+            <div class="ebook-pages">16 pages · Interactive flipbook</div>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -1656,6 +1806,29 @@
         </div>
       </div>
     </div>
+
+    <!-- Certifications -->
+    <div class="cert-block">
+      <div class="conf-gallery-title">Certifications</div>
+      <div class="ach-grid">
+        <div class="ach-item cert-item reveal">
+          <div class="cert-thumb hl-zoom"><img src="2026/claude-code-in-action-certificate.jpg" alt="Claude Code in Action certificate" loading="lazy" /></div>
+          <div class="ach-text-wrap">
+            <div class="ach-text">Claude Code in Action</div>
+            <div class="ach-sub">Anthropic · Jun 2026</div>
+            <a class="cert-verify" href="https://verify.skilljar.com/c/53er5ia7mexo" target="_blank" rel="noopener">Verify credential →</a>
+          </div>
+        </div>
+        <div class="ach-item cert-item reveal reveal-delay-1">
+          <div class="cert-thumb hl-zoom"><img src="2026/claude-101-certificate.jpg" alt="Claude 101 certificate" loading="lazy" /></div>
+          <div class="ach-text-wrap">
+            <div class="ach-text">Claude 101</div>
+            <div class="ach-sub">Anthropic · Jun 2026</div>
+            <a class="cert-verify" href="https://verify.skilljar.com/c/7gty6duuwb6s" target="_blank" rel="noopener">Verify credential →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1666,8 +1839,32 @@
     <h2 class="section-title">Publications</h2>
     <div class="pub-grid">
 
-      <a class="pub-item reveal" href="https://scholar.google.com/scholar?q=Exploring+the+Framework+of+Online+Music+Use+for+Motivation+of+Studies+and+Gratification+Needs+for+Students+Well-Being" target="_blank" rel="noopener">
+      <a class="pub-item reveal" href="https://link.springer.com/chapter/10.1007/978-3-032-20412-7_12" target="_blank" rel="noopener">
         <div class="pub-num-box">01</div>
+        <div>
+          <div class="pub-title">Strengthening Pakistan's Emergency Vehicle Alert System (EVAS) and Socio-Technical Imaginaries Regarding Its Adaptation<div class="pub-venue">Book chapter in <em>Leveraging AI and Big Data for Business Innovation</em> (ed. Rim El Khoury) · Springer, Studies in Big Data vol. 192</div></div>
+          <div class="pub-meta">
+            <span class="pub-year">Aug 2026</span>
+            <span class="pub-indexed">Scopus · Q1</span>
+            <span class="pub-hec">First Author</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="pub-item reveal reveal-delay-1" href="https://link.springer.com/chapter/10.1007/978-3-032-20412-7_11" target="_blank" rel="noopener">
+        <div class="pub-num-box">02</div>
+        <div>
+          <div class="pub-title">Sociological Impacts of Metaverse Technology on Human Culture, Social Reality and Interaction: A Scoping Review<div class="pub-venue">Book chapter in <em>Leveraging AI and Big Data for Business Innovation</em> (ed. Rim El Khoury) · Springer, Studies in Big Data vol. 192</div></div>
+          <div class="pub-meta">
+            <span class="pub-year">Aug 2026</span>
+            <span class="pub-indexed">Scopus · Q1</span>
+            <span class="pub-hec">Co-Author</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="pub-item reveal" href="https://scholar.google.com/scholar?q=Exploring+the+Framework+of+Online+Music+Use+for+Motivation+of+Studies+and+Gratification+Needs+for+Students+Well-Being" target="_blank" rel="noopener">
+        <div class="pub-num-box">03</div>
         <div>
           <div class="pub-title">Exploring the Framework of Online Music Use for Motivation of Studies and Gratification Needs for Students' Well-Being</div>
           <div class="pub-meta">
@@ -1678,7 +1875,7 @@
       </a>
 
       <a class="pub-item reveal reveal-delay-1" href="https://scholar.google.com/scholar?q=Corporate+Influence+and+Media+Integrity+Navigating+Commercial+Pressures+in+Journalism" target="_blank" rel="noopener">
-        <div class="pub-num-box">02</div>
+        <div class="pub-num-box">04</div>
         <div>
           <div class="pub-title">Corporate Influence and Media Integrity: Navigating Commercial Pressures in Journalism</div>
           <div class="pub-meta">
@@ -1689,7 +1886,7 @@
       </a>
 
       <a class="pub-item reveal reveal-delay-2" href="https://scholar.google.com/scholar?q=Exploring+the+Subliminal+Messages+in+Print+Advertisement+for+Fast+Food+Chains" target="_blank" rel="noopener">
-        <div class="pub-num-box">03</div>
+        <div class="pub-num-box">05</div>
         <div>
           <div class="pub-title">Exploring the Subliminal Messages in Print Advertisement for Fast Food Chains</div>
           <div class="pub-meta"><span class="pub-year">2024</span></div>
@@ -1697,7 +1894,7 @@
       </a>
 
       <a class="pub-item reveal reveal-delay-3" href="https://scholar.google.com/scholar?q=How+Mainstream+Video+Games+Are+Unethically+Targeting+a+Specific+Religion" target="_blank" rel="noopener">
-        <div class="pub-num-box">04</div>
+        <div class="pub-num-box">06</div>
         <div>
           <div class="pub-title">How Mainstream Video Games Are Unethically Targeting a Specific Religion</div>
           <div class="pub-meta"><span class="pub-year">2024</span></div>
@@ -1705,7 +1902,7 @@
       </a>
 
       <a class="pub-item reveal reveal-delay-4" href="https://scholar.google.com/scholar?q=Russia+Ukraine+War+Reverberating+Across+World+Regions" target="_blank" rel="noopener">
-        <div class="pub-num-box">05</div>
+        <div class="pub-num-box">07</div>
         <div>
           <div class="pub-title">Russia Ukraine War Reverberating Across World Regions</div>
           <div class="pub-meta"><span class="pub-year">2024</span></div>
@@ -1713,7 +1910,7 @@
       </a>
 
       <a class="pub-item reveal" href="https://scholar.google.com/scholar?q=The+Influence+of+Music+in+Pakistani+Politics" target="_blank" rel="noopener">
-        <div class="pub-num-box">06</div>
+        <div class="pub-num-box">08</div>
         <div>
           <div class="pub-title">The Influence of Music in Pakistani Politics</div>
           <div class="pub-meta"><span class="pub-year">2023</span></div>
@@ -1758,6 +1955,34 @@
     <h2 class="section-title">Achievements</h2>
     <div class="ach-grid">
       <div class="ach-item reveal">
+        <div class="ach-emoji">🎤</div>
+        <div class="ach-text-wrap">
+          <div class="ach-text">Presented a paper (first author) at NexSymp 2026 — BIZSCOM, organised by MMU Press</div>
+          <div class="ach-sub">29 Sep 2026 · Scopus track · FRGS-funded research</div>
+        </div>
+      </div>
+      <div class="ach-item reveal reveal-delay-1">
+        <div class="ach-emoji">💡</div>
+        <div class="ach-text-wrap">
+          <div class="ach-text">Consolation Prize — URIIS 2026 Student Biz Innov Challenge (Team VAI Studio), Top 10 of 82 entries</div>
+          <div class="ach-sub">23 Sep 2026 · World Trade Centre, Kuala Lumpur</div>
+        </div>
+      </div>
+      <div class="ach-item reveal reveal-delay-2">
+        <div class="ach-emoji">🥈</div>
+        <div class="ach-text-wrap">
+          <div class="ach-text">Silver Award — iNVENTX Invention Competition 2026 for <em>AI Music Companion</em>, an AI-powered productivity &amp; well-being platform for Malaysian students</div>
+          <div class="ach-sub">2 Jul 2026 · Multimedia University</div>
+        </div>
+      </div>
+      <div class="ach-item reveal reveal-delay-3">
+        <div class="ach-emoji">🤝</div>
+        <div class="ach-text-wrap">
+          <div class="ach-text">ICCM2026 / DIFCON2026 — Co-authored paper presentation and Conference Committee Volunteer &amp; Helper</div>
+          <div class="ach-sub">5–7 May 2026 · Multimedia University, Malaysia</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
         <div class="ach-emoji">🏆</div>
         <div class="ach-text-wrap">
           <div class="ach-text">Governor's Award at Rebirth Film Festival for Musical Film</div>
@@ -1792,6 +2017,41 @@
         </div>
         <div class="award-photo-item">
           <img src="Nationally%20recognized%20Projects%20and%20Awards/Governor%20Film%20Award/217634453_183097610499130_8466931320607333342_n.jpg" alt="Governor Film Award" loading="lazy" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026 Highlights -->
+    <div class="award-gallery hl-gallery reveal">
+      <div class="award-gallery-title">📸 2026 Highlights</div>
+      <div class="hl-group">
+        <div class="hl-group-head"><span class="hl-group-title">URIIS 2026 · Student Biz Innov Challenge</span><span class="hl-group-date">21–23 Sep 2026 · Kuala Lumpur</span></div>
+        <div class="hl-grid">
+          <div class="hl-item wide hl-zoom"><img src="2026/uriis26-pitch.jpg" alt="Pitching at URIIS 2026" loading="lazy" /></div>
+          <div class="hl-item hl-zoom"><img src="2026/uriis26-portrait.jpg" alt="At URIIS 2026, World Trade Centre KL" loading="lazy" /></div>
+          <div class="hl-item hl-zoom"><img src="2026/uriis26-stage.jpg" alt="URIIS 2026 Students Biz Innov Challenge stage" loading="lazy" /></div>
+          <div class="hl-item doc hl-zoom"><img src="2026/uriis26-consolation-certificate.jpg" alt="URIIS 2026 Consolation Winner certificate" loading="lazy" /></div>
+          <div class="hl-item doc hl-zoom"><img src="2026/uriis26-certificate-vai-studio.jpg" alt="URIIS 2026 certificate, VAI Studio" loading="lazy" /></div>
+        </div>
+      </div>
+      <div class="hl-group">
+        <div class="hl-group-head"><span class="hl-group-title">NexSymp 2026 · BIZSCOM</span><span class="hl-group-date">29 Sep 2026</span></div>
+        <div class="hl-grid">
+          <div class="hl-item wide doc hl-zoom"><img src="2026/nexsymp26-presentation.jpg" alt="Presenting at NexSymp 2026" loading="lazy" /></div>
+        </div>
+      </div>
+      <div class="hl-group">
+        <div class="hl-group-head"><span class="hl-group-title">iNVENTX Invention Competition 2026 · Silver</span><span class="hl-group-date">2 Jul 2026 · MMU</span></div>
+        <div class="hl-grid">
+          <div class="hl-item hl-zoom"><img src="2026/inventx26-silver-award.jpg" alt="iNVENTX 2026 Silver award" loading="lazy" /></div>
+          <div class="hl-item doc hl-zoom"><img src="2026/inventx26-silver-certificate.jpg" alt="iNVENTX 2026 Silver certificate" loading="lazy" /></div>
+        </div>
+      </div>
+      <div class="hl-group">
+        <div class="hl-group-head"><span class="hl-group-title">ICCM2026 / DIFCON2026</span><span class="hl-group-date">5–7 May 2026 · MMU</span></div>
+        <div class="hl-grid">
+          <div class="hl-item wide doc hl-zoom"><img src="2026/difcon26-iccm-paper-certificate.jpg" alt="ICCM2026 paper presentation certificate" loading="lazy" /></div>
+          <div class="hl-item wide doc hl-zoom"><img src="2026/difcon26-volunteer-certificate.jpg" alt="DIFCON2026 Conference Volunteer and Helper certificate" loading="lazy" /></div>
         </div>
       </div>
     </div>
@@ -2150,6 +2410,15 @@
 </script>
 
 <!-- LIGHTBOX -->
+<div id="ebook-viewer" role="dialog" aria-modal="true" aria-label="E-book flipbook">
+  <div class="ebook-viewer-bar">
+    <span class="ebook-viewer-title" id="ebook-viewer-title"></span>
+    <a class="ebook-viewer-btn" id="ebook-viewer-newtab" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+    <button type="button" class="ebook-viewer-btn ebook-viewer-close" id="ebook-viewer-close" aria-label="Close">&times;</button>
+  </div>
+  <iframe id="ebook-viewer-frame" title="E-book flipbook" src="about:blank"></iframe>
+</div>
+
 <div id="lightbox">
   <span id="lightbox-close">&times;</span>
   <img id="lightbox-img" src="" alt="" />
@@ -2161,12 +2430,33 @@
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
-  document.querySelectorAll('.conf-photo-item img').forEach(img => {
+  document.querySelectorAll('.conf-photo-item img, .award-photo-item img, .hl-zoom img').forEach(img => {
     img.parentElement.addEventListener('click', () => {
       lightboxImg.src = img.src;
       lightbox.classList.add('open');
     });
   });
+
+  // E-book flipbook viewer
+  const ebookViewer = document.getElementById('ebook-viewer');
+  const ebookFrame = document.getElementById('ebook-viewer-frame');
+  function closeEbook() {
+    ebookViewer.classList.remove('open');
+    ebookFrame.src = 'about:blank';
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.ebook-card').forEach(card => {
+    card.addEventListener('click', () => {
+      ebookFrame.src = card.dataset.book;
+      document.getElementById('ebook-viewer-title').textContent = card.dataset.title;
+      document.getElementById('ebook-viewer-newtab').href = card.dataset.book;
+      ebookViewer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      ebookFrame.focus();
+    });
+  });
+  document.getElementById('ebook-viewer-close').addEventListener('click', closeEbook);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && ebookViewer.classList.contains('open')) closeEbook(); });
 
   function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
