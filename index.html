@@ -854,6 +854,9 @@
     .hl-item.doc img { object-fit: contain; object-position: center; padding: 6px; }
     .hl-item.wide { grid-column: span 2; aspect-ratio: 3/2; }
     .hl-item.wide img { object-position: center; }
+    @media (max-width: 640px) {
+      .hl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+    }
     .ach-text {
       font-size: 0.875rem;
       font-weight: 500;
@@ -1260,6 +1263,9 @@
       transition: transform 0.5s ease;
     }
     .award-photo-item:hover img { transform: scale(1.05); }
+    .award-photo-item.fit { background: rgba(255,255,255,0.04); }
+    .award-photo-item.fit img { object-fit: contain; }
+    .award-photo-item.fit::after { display: none; }
     .award-photo-item::after {
       content: '';
       position: absolute;
@@ -1943,12 +1949,6 @@
         <div class="conf-photo-item">
           <img src="Media%20Conference%20DIFCON%E2%80%9925/ICCM%20-%20Day%202%20%28Afternoon%29%20Vroom2%20Screenshot%203.png" alt="DIFCON'25 — ICCM Day 2" loading="lazy" />
         </div>
-        <div class="conf-photo-item">
-          <img src="Media%20Conference%20DIFCON%E2%80%9925/20211021_130932.jpg" alt="DIFCON'25 — Award Ceremony" loading="lazy" />
-        </div>
-        <div class="conf-photo-item">
-          <img src="Media%20Conference%20DIFCON%E2%80%9925/new.jpg" alt="DIFCON'25 — Award Ceremony" loading="lazy" />
-        </div>
       </div>
     </div>
 
@@ -2024,6 +2024,12 @@
         </div>
         <div class="award-photo-item">
           <img src="Nationally%20recognized%20Projects%20and%20Awards/Governor%20Film%20Award/217634453_183097610499130_8466931320607333342_n.jpg" alt="Governor Film Award" loading="lazy" />
+        </div>
+        <div class="award-photo-item fit">
+          <img src="awards/governor-award-shield.jpg" alt="Governor's Award shield — Rebirth Nation Building Film Festival 2021, Winner: Musical, presented by Governor Punjab" loading="lazy" />
+        </div>
+        <div class="award-photo-item fit">
+          <img src="awards/riphah-ceo-azme-pakistan-shield.jpg" alt="Riphah Institute of Media Sciences shield — Outstanding Performance as CEO, Azme Pakistan (2019)" loading="lazy" />
         </div>
       </div>
     </div>
