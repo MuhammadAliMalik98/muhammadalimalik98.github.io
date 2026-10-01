@@ -1075,6 +1075,22 @@
     }
 
     /* ── CONTACT ── */
+    #brands { background: var(--dark); }
+    .brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem 1rem; }
+    .brand-item { text-align: center; width: 160px; }
+    .brand-tile { background: #fff; border-radius: 14px; aspect-ratio: 3/2; display: flex; align-items: center; justify-content: center; padding: 0.9rem 1.1rem; border: 1px solid var(--card-border); transition: transform 0.3s, box-shadow 0.3s; }
+    .brand-item:hover .brand-tile { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
+    .brand-tile img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .brand-name { margin-top: 0.55rem; font-size: 0.75rem; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; }
+    @media (max-width: 640px) {
+      .brand-grid { gap: 1rem 0.6rem; }
+      .brand-item { width: calc((100% - 1.2rem) / 3); }
+      .brand-tile { padding: 0.5rem 0.6rem; border-radius: 10px; }
+      .brand-name { font-size: 0.68rem; }
+    }
+    @media (max-width: 380px) {
+      .brand-item { width: calc((100% - 0.6rem) / 2); }
+    }
     #contact { background: var(--dark2); }
     .contact-grid {
       display: grid;
@@ -2266,6 +2282,68 @@
     </div>
   </div>
 </div>
+
+<!-- BRANDS & INSTITUTIONS -->
+<section id="brands">
+  <div class="container">
+    <p class="section-eyebrow">Collaborations</p>
+    <h2 class="section-title">Brands &amp; Institutions I Have Worked With</h2>
+    <div class="brand-grid reveal">
+        <div class="brand-item" title="Special Communications Organization">
+          <div class="brand-tile"><img src="logos/sco.png" alt="Special Communications Organization logo" loading="lazy" /></div>
+          <div class="brand-name">SCO Pakistan</div>
+        </div>
+        <div class="brand-item" title="National Logistics Cell">
+          <div class="brand-tile"><img src="logos/nlc.png" alt="National Logistics Cell logo" loading="lazy" /></div>
+          <div class="brand-name">NLC Pakistan</div>
+        </div>
+        <div class="brand-item" title="Higher Education Commission">
+          <div class="brand-tile"><img src="logos/hec.svg" alt="Higher Education Commission logo" loading="lazy" /></div>
+          <div class="brand-name">HEC Pakistan</div>
+        </div>
+        <div class="brand-item" title="The Millennium Universal College">
+          <div class="brand-tile"><img src="logos/tmuc.png" alt="The Millennium Universal College logo" loading="lazy" /></div>
+          <div class="brand-name">TMUC Pakistan</div>
+        </div>
+        <div class="brand-item" title="Riphah International University">
+          <div class="brand-tile"><img src="logos/riphah.png" alt="Riphah International University logo" loading="lazy" /></div>
+          <div class="brand-name">Riphah</div>
+        </div>
+        <div class="brand-item" title="Foundation University Islamabad">
+          <div class="brand-tile"><img src="logos/fui.png" alt="Foundation University Islamabad logo" loading="lazy" /></div>
+          <div class="brand-name">FUI</div>
+        </div>
+        <div class="brand-item" title="Army Public Schools &amp; Colleges System">
+          <div class="brand-tile"><img src="logos/apsacs.svg" alt="Army Public Schools &amp; Colleges System logo" loading="lazy" /></div>
+          <div class="brand-name">APSACS</div>
+        </div>
+        <div class="brand-item" title="All Pakistan Textile Mills Association">
+          <div class="brand-tile"><img src="logos/aptma.png" alt="All Pakistan Textile Mills Association logo" loading="lazy" /></div>
+          <div class="brand-name">APTMA</div>
+        </div>
+        <div class="brand-item" title="Azm-e-Pakistan TV">
+          <div class="brand-tile"><img src="logos/azm-e-pakistan.png" alt="Azm-e-Pakistan TV logo" loading="lazy" /></div>
+          <div class="brand-name">Azm-e-Pakistan</div>
+        </div>
+        <div class="brand-item" title="Multimedia University">
+          <div class="brand-tile"><img src="logos/mmu.png" alt="Multimedia University logo" loading="lazy" /></div>
+          <div class="brand-name">MMU Malaysia</div>
+        </div>
+        <div class="brand-item" title="Mindware PLT">
+          <div class="brand-tile"><img src="logos/mindware.png" alt="Mindware PLT logo" loading="lazy" /></div>
+          <div class="brand-name">Mindware PLT</div>
+        </div>
+        <div class="brand-item" title="University Research &amp; Innovation Investment Summit">
+          <div class="brand-tile"><img src="logos/uriis.png" alt="University Research &amp; Innovation Investment Summit logo" loading="lazy" /></div>
+          <div class="brand-name">URIIS Malaysia</div>
+        </div>
+        <div class="brand-item" title="KOLAXUS Business Innovation Platform">
+          <div class="brand-tile"><img src="logos/kolaxus.png" alt="KOLAXUS Business Innovation Platform logo" loading="lazy" /></div>
+          <div class="brand-name">KOLAXUS</div>
+        </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
