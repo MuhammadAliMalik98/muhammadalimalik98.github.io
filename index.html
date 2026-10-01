@@ -115,6 +115,19 @@
       border-radius: 8px;
     }
     .nav-cta:hover { opacity: 0.85; }
+    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--card-border); border-radius: 10px; background: rgba(255,255,255,0.05); cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; }
+    .nav-toggle span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--text); transition: transform 0.25s, opacity 0.25s; }
+    nav.menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 760px) {
+      nav { padding: 0 1.25rem; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0.25rem; padding: 0.75rem 1.25rem 1.25rem; background: rgba(0,2,73,0.98); border-bottom: 1px solid var(--card-border); box-shadow: 0 16px 32px rgba(0,0,0,0.4); }
+      nav.menu-open .nav-links { display: flex; }
+      .nav-links a { display: block; font-size: 0.95rem; padding: 0.75rem 1rem; }
+      .nav-cta { text-align: center; margin-top: 0.35rem; padding: 0.75rem 1rem !important; }
+    }
 
     /* ── SECTIONS ── */
     section { padding: 100px 2rem; position: relative; z-index: 1; }
@@ -1411,7 +1424,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { max-width: 340px; }
+      .hero-card { max-width: 340px; width: 100%; margin: 0 auto; }
       .edu-grid { grid-template-columns: 1fr; }
       .skills-layout { grid-template-columns: 1fr; }
       .ach-grid { grid-template-columns: 1fr; }
@@ -1427,7 +1440,9 @@
       .tl-item { grid-template-columns: 1fr; }
       .tl-date { text-align: left; }
       .tl-line { display: none; }
-      .nav-links li:not(:last-child) { display: none; }
+      .showreel-grid { grid-template-columns: 1fr; }
+      .showreel-card:first-child { grid-column: auto; }
+      .showreel-card:nth-child(2) .showreel-thumb { aspect-ratio: 16/9; height: auto; }
     }
   </style>
 </head>
@@ -1441,7 +1456,10 @@
 <!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="#hero">Muhammad Ali Malik</a>
-  <ul class="nav-links">
+  <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -2191,7 +2209,7 @@
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
             <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="Ia2VkmreWy0">Loading…</div>
+            <div class="showreel-title" data-title="Ia2VkmreWy0">Tum Yaad Aye — Official Animated Video</div>
           </div>
         </div>
       </a>
@@ -2201,8 +2219,8 @@
           <img src="https://img.youtube.com/vi/2pcGdF3YFMk/hqdefault.jpg" alt="" loading="lazy" />
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
-            <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="2pcGdF3YFMk">Loading…</div>
+            <div class="showreel-type">Music · Cover</div>
+            <div class="showreel-title" data-title="2pcGdF3YFMk">Tajdar-e-Haram — Cover for Flood Victims</div>
           </div>
         </div>
       </a>
@@ -2212,8 +2230,8 @@
           <img src="https://img.youtube.com/vi/mGsio8hjRas/hqdefault.jpg" alt="" loading="lazy" />
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
-            <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="mGsio8hjRas">Loading…</div>
+            <div class="showreel-type">Music · Cover</div>
+            <div class="showreel-title" data-title="mGsio8hjRas">Mujhe Le Chal — Cover</div>
           </div>
         </div>
       </a>
@@ -2224,21 +2242,11 @@
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
             <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="DMKo4xvWIQg">Loading…</div>
+            <div class="showreel-title" data-title="DMKo4xvWIQg">Wohi Khuda Hai — Hamd</div>
           </div>
         </div>
       </a>
 
-      <a class="showreel-card" href="https://youtu.be/tTR8yG95fps" target="_blank" rel="noopener" data-id="tTR8yG95fps">
-        <div class="showreel-thumb">
-          <img src="https://img.youtube.com/vi/tTR8yG95fps/hqdefault.jpg" alt="" loading="lazy" />
-          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="showreel-overlay">
-            <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="tTR8yG95fps">Kashmir — Jannat Nazeer · Tribute</div>
-          </div>
-        </div>
-      </a>
 
       <a class="showreel-card" href="https://youtu.be/QtdrLav_OFM" target="_blank" rel="noopener" data-id="QtdrLav_OFM">
         <div class="showreel-thumb">
@@ -2268,7 +2276,7 @@
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
             <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="6y_gKCkV_Bc">Loading…</div>
+            <div class="showreel-title" data-title="6y_gKCkV_Bc">Sufi Medley 2018</div>
           </div>
         </div>
       </a>
@@ -2279,7 +2287,7 @@
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="showreel-overlay">
             <div class="showreel-type">Music · Vocal</div>
-            <div class="showreel-title" data-title="bLlcAegMwfA">Loading…</div>
+            <div class="showreel-title" data-title="bLlcAegMwfA">Kabhi Ae Naujawan Muslim — Iqbal Nasheed</div>
           </div>
         </div>
       </a>
@@ -2521,6 +2529,19 @@
 </div>
 
 <script>
+  // Mobile menu
+  const navEl = document.getElementById('navbar');
+  const navToggle = document.getElementById('nav-toggle');
+  function setMenu(open) {
+    navEl.classList.toggle('menu-open', open);
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  navToggle.addEventListener('click', () => setMenu(!navEl.classList.contains('menu-open')));
+  document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('click', e => { if (!navEl.contains(e.target)) setMenu(false); });
+  window.addEventListener('resize', () => { if (innerWidth > 760) setMenu(false); });
+
   // Lightbox for conference photos
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
